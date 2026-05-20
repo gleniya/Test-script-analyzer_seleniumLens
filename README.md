@@ -84,6 +84,6 @@ Then change the fetch URL in `App.jsx` from `https://api.anthropic.com/v1/messag
 
 ## Tech Stack
 - React 18 + Vite
-- Claude claude-sonnet-4-20250514 (Anthropic API)
+- ChatGPT API
 - Pure CSS (no UI library)
 - Vercel for deployment
