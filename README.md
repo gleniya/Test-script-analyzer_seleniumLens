@@ -19,22 +19,12 @@ A production-ready tool for QA engineers to analyze Selenium test scripts for is
 npm install
 ```
 
-### 2. Set up your Anthropic API key
+### 2. Set up your OpenAI API key
 
 Create a `.env.local` file:
 ```
-VITE_ANTHROPIC_API_KEY=sk-ant-your-key-here
 ```
 
-Then update `src/App.jsx` — find the fetch call and add the header:
-```js
-headers: {
-  'Content-Type': 'application/json',
-  'x-api-key': import.meta.env.VITE_ANTHROPIC_API_KEY,
-  'anthropic-version': '2023-06-01',
-  'anthropic-dangerous-direct-browser-access': 'true',
-},
-```
 
 ### 3. Run locally
 ```bash
@@ -49,13 +39,10 @@ npm install -g vercel
 vercel
 ```
 
-When prompted, add environment variable:
-- `ANTHROPIC_API_KEY` = your Anthropic API key
-
 ### Option B: Via Vercel Dashboard
 1. Push this repo to GitHub
 2. Go to [vercel.com](https://vercel.com) → New Project → Import repo
-3. Add environment variable: `ANTHROPIC_API_KEY`
+3. Add environment variable: `API_KEY`
 4. Deploy
 
 ### Production API key handling (recommended)
@@ -69,7 +56,7 @@ export default async function handler(req, res) {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'x-api-key': process.env.ANTHROPIC_API_KEY,
+      'x-api-key': process.env.AI_API_KEY,
       'anthropic-version': '2023-06-01',
     },
     body: JSON.stringify(req.body)
